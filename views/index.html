@@ -47,22 +47,37 @@
         <section>
           <h2>Customer information</h2>
           <p>Here is where you provide information</p>
-          <p>
-    <label for="Full">Full name</label><br>
-    <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name" />
-</p>
-<p>
-    <label for="mail">E-mail</label><br>
-    <input type="email" id="email" name="em" required="required" placeholder="E-mail address" />
-</p>
-<p>
-<label for="Street">Street</label><br>
-<input type="text" id="street" name="s" required="required" placeholder="Street name" />
-</p>
-<p>
-<label for="Housenumb">House</label><br>
-<input type="number" id="housenumb" name="hn" required="required" placeholder="House number" />
-</p>
+          <form>
+            <p>
+              <label for="Full">Full name</label><br>
+              <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name" />
+            </p>
+            <p>
+              <label for="mail">E-mail</label><br>
+              <input type="email" id="email" name="em" required="required" placeholder="E-mail address" />
+            </p>
+            <p>
+              <label for="Street">Street</label><br>
+              <input type="text" id="street" name="s" required="required" placeholder="Street name" />
+            </p>
+            <p>
+              <label for="Housenumb">House</label><br>
+              <input type="number" id="housenumb" name="hn" required="required" placeholder="House number" />
+            </p>
+            <p>
+              <label for="recipient">Recipient</label><br />
+              <select id="recipient" name="rcp">
+                <option selected="selected">Credid card</option>
+                <option>Paypal</option>
+                <option>Prepaid cards</option>
+              </select>
+            </p>
+            <label for="Gender">Your gender</label><br>
+            <input type="radio" name="gender" value="male" checked="checked"> Male<br>
+            <input type="radio" name="gender" value="female"> Female<br>
+            <input type="radio" name="gender" value="other"> Do not wish to answer<br>
+          </form>
+          <button type="submit"><img src="https://img.favpng.com/3/14/9/hamburger-cheeseburger-fast-food-computer-icons-clip-art-png-favpng-MUbwumA8DD1dhYAxzL0BMk4pF.jpg" width="50" /> Send Info</button>
         </section>
 
       </main>
