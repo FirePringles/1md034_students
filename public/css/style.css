@@ -3,9 +3,17 @@ body {
   font-size: 125%;
 }
 
+button{
+  margin-top: 50px;
+}
+
 button:hover {
   background-color: DarkGray;
   cursor: crosshair;
+}
+
+section{
+  margin: 100px 0px;
 }
 
 table{
