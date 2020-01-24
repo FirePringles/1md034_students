@@ -4,7 +4,7 @@ body {
 }
 
 button{
-  margin-top: 50px;
+  margin: 50px 0px;
 }
 
 button:hover {
@@ -14,6 +14,7 @@ button:hover {
 
 section{
   margin: 100px 0px;
+  border: 2px dashed;
 }
 
 table{
@@ -28,8 +29,10 @@ table{
 #burgers {
 background-color: black;
 color: white;
+border-color: white;
 }
 
 #customers {
-
+border-color: black;
+padding: 5px 20px;
 }
