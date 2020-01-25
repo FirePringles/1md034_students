@@ -13,13 +13,18 @@ button:hover {
 }
 
 section{
-  margin: 100px 0px;
   border: 2px dashed;
 }
 
 table{
   margin: 0 auto;
   width:75%;
+}
+
+#header {
+  height: 400px;
+  width: 1330px;
+  opacity: 0.8;
 }
 
 .highlight {
