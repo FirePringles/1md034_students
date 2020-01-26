@@ -22,23 +22,43 @@ table{
   height: 300px;
 }
 
+.wrapper {
+     display: grid;
+     grid-gap: 0px;
+     justify-content: center;
+     grid-template-columns: 360px 360px 360px;
+     background-color: black;
+     color: green;
+ }
+
+
+.box {
+    background-color: black;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 100%;
+
+}
+
 header{
   width: 1330px;
   overflow: hidden;
+  height: 400px;
 }
 
 header h1{
-  margin-top: -50px;
+  margin-top: -280px;
+  margin-left: 400px;
   position: absolute;
 }
 
 #headerImg {
-  display: block;
 margin-left: auto;
 margin-right: auto;
 width: 100%;
 opacity: 0.7;
-height: auto;
+height: 100%;
 }
 
 .highlight {
