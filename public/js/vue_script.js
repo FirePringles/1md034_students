@@ -18,10 +18,6 @@ let item5 = new menuItem("Burgare5","50kCal",false,true,"hej");
 const vm = new Vue({
   el: '#myID',
   data: {
-    burg1: item1.info(),
-    burg2: item2.info(),
-    burg3: item3.info(),
-    burg4: item4.info(),
-    burg5: item5.info()
+   menu: [item1.info(),item2.info(),item3.info(),item4.info(),item5.info()]
   },
 })

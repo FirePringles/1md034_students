@@ -5,7 +5,18 @@ function menuItem(name, kCal, gluten, lactos, image){
   this.lactos = lactos;
   this.image = image;
   this.info = function(){
+    if(this.gluten == true && this.lactos == true){
+    	return this.name + ' ' + this.kCal + " Lactos" + " Gluten";
+      }
+    else if(this.gluten == true){
+    	return this.name + ' ' + this.kCal + " Gluten";
+    }
+        else if(this.lactos == true){
+    	return this.name + ' ' + this.kCal + " Lactos";
+    }
+    else {
     return this.name + ' ' + this.kCal;
+    }
   };
 }
 
@@ -14,6 +25,17 @@ let item2 = new menuItem("Burgare2",20000,true,true,"hej");
 let item3 = new menuItem("Burgare3",30000,false,false,"hej");
 let item4 = new menuItem("Burgare4",40000,false,false,"hej");
 let item5 = new menuItem("Burgare5",50000,false,true,"hej");
+
+let menu = [item1, item2, item3, item4, item5];
+
+let myElement = document.getElementById("myID");
+for (burger in menu)
+{
+        let listItem = document.createElement("li");
+        let listValue = document.createTextNode(menu[burger].info());
+        listItem.appendChild(listValue);
+        myElement.appendChild(listItem);
+}     
 
 console.log(item1.info());
 console.log(item2.info());
