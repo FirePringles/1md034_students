@@ -2,13 +2,14 @@
 <html lang="en">
     <head>
       <link rel="stylesheet" type="text/css" href="css/style.css">
+      <script type="text/javascript" src="js/menu.js" defer></script>
       <script src="js/js_script.js" defer></script>
-      <script src="https://vuejs.org/js/vue.js"></script>
-      <script src ="js/vue_script.js"></script>
+      <script src="https://vuejs.org/js/vue.js" defer></script>
+      <script src ="js/vue_script.js" defer></script>
       <title>Jockes Fantastic Burgers</title>
     </head>
     <body>
-      <main>
+      <main id="myID">
         <header>
           <img src="https://previews.123rf.com/images/vmalafeevskiy/vmalafeevskiy1706/vmalafeevskiy170600063/80799097-burger-and-soda-fast-food-header-banner-template.jpg" id="headerImg" alt="Header" title="Header">
           <h1>Welcome to BurgerHeaven</h1>
@@ -16,7 +17,16 @@
         <section id="burgers" align="center">
           <h2>Select Burger</h2>
           <p>Here you select a burger</p>
-          <div class="wrapper" id="myID">
+          <div class="wrapper">
+            <div v-for="index in menu">
+              <h2>{{ index.name }}</h2>
+              <img v-bind:src="index.img" width="200" title="index.name" title="index.name"/>
+              <p>{{ index.kCal }}</p>
+              <p v-if="index.lactose == true">Lactose</p>
+              <p v-if="index.gluten == true">Gluten</p>
+              <label>Choose this burger</label>
+              <input v-bind:true-value="index.name" false-value="" type="checkbox" v-model="burger"/>
+            </div>
           </div>
       </section>
 
@@ -26,34 +36,41 @@
           <form>
             <p>
               <label for="Full">Full name</label><br>
-              <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name" />
+              <input v-model="name"  type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name" />
             </p>
             <p>
               <label for="mail">E-mail</label><br>
-              <input type="email" id="email" name="em" required="required" placeholder="E-mail address" />
+              <input v-model="email" type="email" id="email" name="em" required="required" placeholder="E-mail address" />
             </p>
             <p>
               <label for="Street">Street</label><br>
-              <input type="text" id="street" name="s" required="required" placeholder="Street name" />
+              <input v-model="street" type="text" id="street" name="s" required="required" placeholder="Street name" />
             </p>
             <p>
               <label for="Housenumb">House</label><br>
-              <input type="number" id="housenumb" name="hn" required="required" placeholder="House number" />
+              <input v-model="housenumb" type="number" id="housenumb" name="hn" required="required" placeholder="House number" />
             </p>
             <p>
               <label for="recipient">Recipient</label><br />
-              <select id="recipient" name="rcp">
-                <option selected="selected">Credid card</option>
+              <select id="recipient" name="rcp" v-model="payment">
+                <option selected>Credit card</option>
                 <option>Paypal</option>
                 <option>Prepaid cards</option>
               </select>
             </p>
-            <label for="Gender">Your gender</label><br>
-            <input type="radio" name="gender" value="male" checked="checked"> Male<br>
-            <input type="radio" name="gender" value="female"> Female<br>
-            <input type="radio" name="gender" value="other"> Do not wish to answer<br>
+            <label for="gender" id="genderButtons">Your gender</label><br>
+            <input v-model="gender" type="radio" name="gender" value="male" checked="checked"> Male<br>
+            <input v-model="gender" type="radio" name="gender" value="female"> Female<br>
+            <input v-model="gender" type="radio" name="gender" value="other"> Do not wish to answer<br>
           </form>
-          <button type="submit"><img src="https://img.favpng.com/3/14/9/hamburger-cheeseburger-fast-food-computer-icons-clip-art-png-favpng-MUbwumA8DD1dhYAxzL0BMk4pF.jpg" width="50" /> Send Info</button>
+          <button v-on:click="markDone()" type="submit" id="orderButton"><img src="https://img.favpng.com/3/14/9/hamburger-cheeseburger-fast-food-computer-icons-clip-art-png-favpng-MUbwumA8DD1dhYAxzL0BMk4pF.jpg" width="50" /> Send Info</button>
+          <p v-if="burger && seen">{{burger}}</p>
+          <p v-if="name && seen">{{name}}</p>
+          <p v-if="email && seen">{{email}}</p>
+          <p v-if="street && seen">{{street}}</p>
+          <p v-if="housenumb && seen">{{housenumb}}</p>
+          <p v-if="payment && seen">{{payment}}</p>
+          <p v-if="gender && seen">{{gender}}</p>
         </section>
 
       </main>
