@@ -2,9 +2,12 @@
 <html lang="en">
     <head>
       <link rel="stylesheet" type="text/css" href="css/style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="css/deli-very.css">
       <script type="text/javascript" src="js/menu.js" defer></script>
       <script src="js/js_script.js" defer></script>
-      <script src="https://vuejs.org/js/vue.js" defer></script>
+      <script src="https:// vuejs.org/js/vue.js" defer></script>
+      <script src="/socket.io/socket.io.js" defer></script>
       <script src ="js/vue_script.js" defer></script>
       <title>Jockes Fantastic Burgers</title>
     </head>
@@ -43,14 +46,6 @@
               <input v-model="email" type="email" id="email" name="em" required="required" placeholder="E-mail address" />
             </p>
             <p>
-              <label for="Street">Street</label><br>
-              <input v-model="street" type="text" id="street" name="s" required="required" placeholder="Street name" />
-            </p>
-            <p>
-              <label for="Housenumb">House</label><br>
-              <input v-model="housenumb" type="number" id="housenumb" name="hn" required="required" placeholder="House number" />
-            </p>
-            <p>
               <label for="recipient">Recipient</label><br />
               <select id="recipient" name="rcp" v-model="payment">
                 <option selected>Credit card</option>
@@ -63,12 +58,19 @@
             <input v-model="gender" type="radio" name="gender" value="female"> Female<br>
             <input v-model="gender" type="radio" name="gender" value="other"> Do not wish to answer<br>
           </form>
+          <div class="view-box">
+            <div id="dots" v-on:click="addOrder">
+                <div
+                  v-for="(order, key) in orders"
+                  v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                  {{key}}
+                </div>
+            </div>
+          </div>
           <button v-on:click="markDone()" type="submit" id="orderButton"><img src="https://img.favpng.com/3/14/9/hamburger-cheeseburger-fast-food-computer-icons-clip-art-png-favpng-MUbwumA8DD1dhYAxzL0BMk4pF.jpg" width="50" /> Send Info</button>
           <p v-if="burger && seen">{{burger}}</p>
           <p v-if="name && seen">{{name}}</p>
           <p v-if="email && seen">{{email}}</p>
-          <p v-if="street && seen">{{street}}</p>
-          <p v-if="housenumb && seen">{{housenumb}}</p>
           <p v-if="payment && seen">{{payment}}</p>
           <p v-if="gender && seen">{{gender}}</p>
         </section>
