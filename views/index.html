@@ -6,7 +6,7 @@
       <link rel="stylesheet" href="css/deli-very.css">
       <script type="text/javascript" src="js/menu.js" defer></script>
       <script src="js/js_script.js" defer></script>
-      <script src="https:// vuejs.org/js/vue.js" defer></script>
+      <script src="https://vuejs.org/js/vue.js" defer></script>
       <script src="/socket.io/socket.io.js" defer></script>
       <script src ="js/vue_script.js" defer></script>
       <title>Jockes Fantastic Burgers</title>
@@ -28,7 +28,7 @@
               <p v-if="index.lactose == true">Lactose</p>
               <p v-if="index.gluten == true">Gluten</p>
               <label>Choose this burger</label>
-              <input v-bind:true-value="index.name" false-value="" type="checkbox" v-model="burger"/>
+              <input v-bind:value="index.name" v-bind:name="index.name" type="checkbox" v-model="burger"/>
             </div>
           </div>
       </section>
@@ -59,11 +59,10 @@
             <input v-model="gender" type="radio" name="gender" value="other"> Do not wish to answer<br>
           </form>
           <div class="view-box">
-            <div id="dots" v-on:click="addOrder">
+            <div id="dots" v-on:click="displayOrder">
                 <div
-                  v-for="(order, key) in orders"
-                  v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
-                  {{key}}
+                  v-bind:style="{ left: details.x + 'px', top: details.y + 'px'}">
+                  T
                 </div>
             </div>
           </div>
